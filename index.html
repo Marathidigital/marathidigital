@@ -2,31 +2,975 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Marathi Digital - Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marathi Digital - Professional Services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <style>
-    body {
-      background: #f4f4f4;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    :root {
+      --primary: #0a4d8c;
+      --secondary: #1976d2;
+      --accent: #64b5f6;
+      --light: #f5f9ff;
+      --dark: #333;
+      --success: #4caf50;
+      --warning: #ff9800;
+      --danger: #f44336;
+    }
+    
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background: #f8f9fa;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-content {
+      display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
     }
-    h1 {
-      font-size: 3rem;
-      color: #0077cc;
+    
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      color: white;
     }
-    p {
+    
+    .tagline {
       font-size: 1.2rem;
-      color: #333;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+    
+    /* Navigation */
+    nav {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0;
+    }
+    
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-menu li {
+      margin-left: 1.5rem;
+    }
+    
+    .nav-menu a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      padding: 0.5rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    
+    .nav-menu a:hover, .nav-menu a.active {
+      color: var(--secondary);
+      border-bottom: 2px solid var(--secondary);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+      background-size: cover;
+      height: 500px;
+      position: relative;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      background: var(--secondary);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    
+    .btn:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+    }
+    
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+    
+    /* About Section */
+    .section {
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      display: block;
+      width: 50%;
+      height: 3px;
+      background: var(--accent);
+      margin: 0.5rem auto 0;
+    }
+    
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .service-card:hover .service-img img {
+      transform: scale(1.1);
+    }
+    
+    .service-content {
+      padding: 1.5rem;
+    }
+    
+    .service-content h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+    }
+    
+    .service-content p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    
+    .service-cta {
+      display: inline-block;
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .modal.show {
+      opacity: 1;
+      display: block;
+    }
+    
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+      width: 80%;
+      max-width: 900px;
+      position: relative;
+      animation: modalIn 0.5s;
+    }
+    
+    @keyframes modalIn {
+      from {opacity: 0; transform: translateY(-50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .close:hover {
+      color: var(--danger);
+    }
+    
+    .modal-header {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .modal-header h2 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+    
+    .modal-body {
+      margin-bottom: 20px;
+    }
+    
+    .modal-footer {
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+      text-align: right;
+    }
+    
+    /* Partners Section */
+    .partners {
+      background-color: var(--light);
+      padding: 3rem 0;
+    }
+    
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .partner-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      padding: 10px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+    
+    .partner-logo:hover {
+      transform: translateY(-5px);
+    }
+    
+    .partner-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      filter: grayscale(100%);
+      transition: filter 0.3s;
+    }
+    
+    .partner-logo:hover img {
+      filter: grayscale(0%);
+    }
+    
+    /* Contact Section */
+    .contact {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+    
+    .contact-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-details {
+      list-style: none;
+    }
+    
+    .contact-details li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: start;
+    }
+    
+    .contact-icon {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-form h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-col h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 50px;
+      background: var(--accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+      padding-left: 5px;
+    }
+    
+    .social-links {
+      display: flex;
+      list-style: none;
+      margin-top: 1rem;
+    }
+    
+    .social-links li {
+      margin-right: 1rem;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      color: white;
+      transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    
+    /* Modal Content Specific */
+    .service-detail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    
+    .service-detail-content {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .detail-img {
+      flex: 1;
+      min-width: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .detail-img img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    
+    .service-features {
+      margin: 1.5rem 0;
+    }
+    
+    .service-features h4 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .feature-list {
+      list-style: none;
+    }
+    
+    .feature-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+    }
+    
+    .feature-list li:before {
+      content: '✓';
+      color: var(--success);
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    
+    .service-partners {
+      margin-top: 2rem;
+    }
+    
+    .service-partners h4 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .partner-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .partner-logo-sm {
+      width: 100px;
+      height: 60px;
+      padding: 5px;
+      background: #f9f9f9;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .partner-logo-sm img {
+      max-width: 90%;
+      max-height: 80%;
+    }
+    
+    .why-choose {
+      margin-top: 2rem;
+    }
+    
+    .why-choose h4 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .benefit {
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 5px;
+      text-align: center;
+    }
+    
+    .benefit i {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .benefit h5 {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      margin-top: 3rem;
+    }
+    
+    .testimonial {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 10px;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    
+    .testimonial-content {
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .testimonial-content:before {
+      content: '"';
+      font-size: 4rem;
+      position: absolute;
+      left: 0;
+      top: -20px;
+      color: var(--accent);
+      opacity: 0.3;
+    }
+    
+    .client-info {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .client-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 1rem;
+    }
+    
+    .client-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .client-name {
+      font-weight: 600;
+    }
+    
+    .client-position {
+      font-size: 0.8rem;
+      color: #777;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        padding: 1rem 0;
+      }
+      
+      .nav-menu {
+        margin-top: 1rem;
+      }
+      
+      .nav-menu li {
+        margin: 0 0.5rem;
+      }
+      
+      .hero {
+        height: 400px;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section {
+        padding: 3rem 0;
+      }
+      
+      .modal-content {
+        width: 95%;
+        margin: 10% auto;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .service-card {
+        margin-bottom: 1.5rem;
+      }
+      
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>🚀 Marathi Digital</h1>
-  <p>We’re launching soon. Stay tuned!</p>
-</body>
-</html>
+  <!-- Header Section -->
+  <header class="animate__animated animate__fadeIn">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="logo">Marathi Digital</h1>
+        <p class="tagline">Professional Solutions for Business Growth</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="nav-container">
+        <a href="#" class="nav-logo">Marathi Digital</a>
+        <ul class="nav-menu">
+          <li><a href="#about" class="active">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content animate__animated animate__fadeInUp">
+        <h1>Transform Your Business Digitally</h1>
+        <p>Professional advisory services for insurance, restaurant management, travel listings, and digital marketing.</p>
+        <a href="#services" class="btn">Explore Services</a>
+        <a href="#contact" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Us</h2>
+      </div>
+      <div class="about-content">
+        <p>Marathi Digital is a premier advisory firm based in Pune, specializing in insurance solutions, restaurant & travel business optimization, and comprehensive digital marketing strategies. Led by Aditya, our team delivers tailored solutions that drive growth, streamline operations, and enhance digital presence for businesses and individuals alike.</p>
+        <p>With years of industry experience and a client-first approach, we've helped numerous businesses transform their operations and individuals secure their financial future through strategic planning and implementation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+      </div>
+      <div class="services-grid">
+        <!-- Insurance Advisory -->
+        <div class="service-card" data-service="insurance">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Insurance Advisory">
+          </div>
+          <div class="service-content">
+            <h3>Insurance Advisory</h3>
+            <p>Tailored insurance plans to protect what matters most. Specializing in life, health, and retirement solutions.</p>
+            <a href="#" class="service-cta">Learn More →</a>
+          </div>
+        </div>
+        
+        <!-- Restaurant Onboarding -->
+        <div class="service-card" data-service="restaurant">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80" alt="Restaurant Onboarding">
+          </div>
+          <div class="service-content">
+            <h3>Restaurant Onboarding</h3>
+            <p>Comprehensive onboarding services for food delivery platforms, digital menu creation, and POS integration.</p>
+            <a href="#" class="service-cta">Learn More →</a>
+          </div>
+        </div>
+        
+        <!-- Food Service Automation -->
+        <div class="service-card" data-service="automation">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&w=600&q=80" alt="Food Service Automation">
+          </div>
+          <div class="service-content">
+            <h3>Food Service Automation</h3>
+            <p>End-to-end automation solutions for kitchens and delivery systems to optimize operations and customer experience.</p>
+            <a href="#" class="service-cta">Learn More →</a>
+          </div>
+        </div>
+        
+        <!-- Travel Listings -->
+        <div class="service-card" data-service="travel">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80" alt="Travel Listings">
+          </div>
+          <div class="service-content">
+            <h3>Travel Listings</h3>
+            <p>Professional onboarding and optimization for travel platforms to maximize visibility and bookings.</p>
+            <a href="#" class="service-cta">Learn More →</a>
+          </div>
+        </div>
+        
+        <!-- Digital Marketing -->
+        <div class="service-card" data-service="marketing">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80" alt="Digital Marketing">
+          </div>
+          <div class="service-content">
+            <h3>Digital & Creative Marketing</h3>
+            <p>Strategic marketing solutions across multiple platforms to boost brand awareness and drive customer acquisition.</p>
+            <a href="#" class="service-cta">Learn More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section class="section partners" id="partners">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Partners</h2>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-logo">
+          <img src="/api/placeholder/150/80" alt="ICICI Prudential">
+        </div>
+        <div class="partner-logo">
+          <img src="/api/placeholder/150/80" alt="SBI Life">
+        </div>
+        <div class="partner-logo">
+          <img src="/api/placeholder/150/80" alt="Kotak Life">
+        </div>
+        <div class="partner-logo">
+          <img src="/api/placeholder/150/80" alt="Zomato">
+        </div>
+        <div class="partner-logo">
+          <img src="/api/placeholder/150/80" alt="Swiggy">
+        </div>
+        <div class="partner-logo">
+          <img src="/api/placeholder/150/80" alt="Airbnb">
+        </div>
+        <div class="partner-logo">
+          <img src="/api/placeholder/150/80" alt="MakeMyTrip">
+        </div>
+        <div class="partner-logo">
+          <img src="/api/placeholder/150/80" alt="Booking.com">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Get In Touch</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <ul class="contact-details">
+            <li>
+              <span class="contact-icon">📍</span>
+              <span>Pune, Maharashtra, India</span>
+            </li>
+            <li>
+              <span class="contact-icon">📞</span>
+              <span>+91 9823171785</span>
+            </li>
+            <li>
+              <span class="contact-icon">✉️</span>
+              <span>aditya.kuthe@marathidigital.net</span>
+            </li>
+            <li>
+              <span class="contact-icon">🕒</span>
+              <span>Monday - Saturday: 9:00 AM - 7:00 PM</span>
+            </li>
+          </ul>
+        </div>
+        <div class="contact-form">
+          <h3>Send us a message</h3>
+          <form action="mailto:aditya.kuthe@marathidigital.net" method="post" enctype="text/plain">
+            <div class="form-group">
+              <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
