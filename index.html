@@ -272,80 +272,6 @@
       text-decoration: none;
     }
     
-    /* Modal Styles */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.7);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    
-    .modal.show {
-      opacity: 1;
-      display: block;
-    }
-    
-    .modal-content {
-      background-color: #fefefe;
-      margin: 5% auto;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-      width: 80%;
-      max-width: 900px;
-      position: relative;
-      animation: modalIn 0.5s;
-    }
-    
-    @keyframes modalIn {
-      from {opacity: 0; transform: translateY(-50px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: #aaa;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-    
-    .close:hover {
-      color: var(--danger);
-    }
-    
-    .modal-header {
-      border-bottom: 1px solid #eee;
-      padding-bottom: 15px;
-      margin-bottom: 20px;
-    }
-    
-    .modal-header h2 {
-      color: var(--primary);
-      font-size: 1.8rem;
-      margin-bottom: 5px;
-    }
-    
-    .modal-body {
-      margin-bottom: 20px;
-    }
-    
-    .modal-footer {
-      border-top: 1px solid #eee;
-      padding-top: 15px;
-      text-align: right;
-    }
-    
     /* Partners Section */
     .partners {
       background-color: var(--light);
@@ -354,36 +280,34 @@
     
     .partners-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 2rem;
-      align-items: center;
+      text-align: center;
     }
     
-    .partner-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 80px;
-      padding: 10px;
+    .partner-card {
       background: white;
+      padding: 2rem 1rem;
       border-radius: 10px;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s;
     }
     
-    .partner-logo:hover {
+    .partner-card:hover {
       transform: translateY(-5px);
     }
     
-    .partner-logo img {
-      max-width: 100%;
-      max-height: 100%;
-      filter: grayscale(100%);
-      transition: filter 0.3s;
+    .partner-category {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
     }
     
-    .partner-logo:hover img {
-      filter: grayscale(0%);
+    .partner-names {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.4;
     }
     
     /* Contact Section */
@@ -539,180 +463,6 @@
       color: #aaa;
     }
     
-    /* Modal Content Specific */
-    .service-detail {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    
-    .service-detail-content {
-      flex: 1;
-      min-width: 300px;
-    }
-    
-    .detail-img {
-      flex: 1;
-      min-width: 300px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    
-    .detail-img img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-    
-    .service-features {
-      margin: 1.5rem 0;
-    }
-    
-    .service-features h4 {
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-    
-    .feature-list {
-      list-style: none;
-    }
-    
-    .feature-list li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #eee;
-      display: flex;
-      align-items: center;
-    }
-    
-    .feature-list li:before {
-      content: '✓';
-      color: var(--success);
-      margin-right: 10px;
-      font-weight: bold;
-    }
-    
-    .service-partners {
-      margin-top: 2rem;
-    }
-    
-    .service-partners h4 {
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-    
-    .partner-logos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    
-    .partner-logo-sm {
-      width: 100px;
-      height: 60px;
-      padding: 5px;
-      background: #f9f9f9;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .partner-logo-sm img {
-      max-width: 90%;
-      max-height: 80%;
-    }
-    
-    .why-choose {
-      margin-top: 2rem;
-    }
-    
-    .why-choose h4 {
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-    
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    
-    .benefit {
-      background: #f9f9f9;
-      padding: 1rem;
-      border-radius: 5px;
-      text-align: center;
-    }
-    
-    .benefit i {
-      color: var(--primary);
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .benefit h5 {
-      margin-bottom: 0.5rem;
-    }
-    
-    /* Testimonials */
-    .testimonials {
-      margin-top: 3rem;
-    }
-    
-    .testimonial {
-      background: #f9f9f9;
-      padding: 1.5rem;
-      border-radius: 10px;
-      position: relative;
-      margin-bottom: 2rem;
-    }
-    
-    .testimonial-content {
-      position: relative;
-      padding-left: 2rem;
-    }
-    
-    .testimonial-content:before {
-      content: '"';
-      font-size: 4rem;
-      position: absolute;
-      left: 0;
-      top: -20px;
-      color: var(--accent);
-      opacity: 0.3;
-    }
-    
-    .client-info {
-      margin-top: 1rem;
-      display: flex;
-      align-items: center;
-    }
-    
-    .client-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-right: 1rem;
-    }
-    
-    .client-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .client-name {
-      font-weight: 600;
-    }
-    
-    .client-position {
-      font-size: 0.8rem;
-      color: #777;
-    }
-    
     /* Responsive */
     @media (max-width: 768px) {
       .nav-container {
@@ -738,11 +488,6 @@
       
       .section {
         padding: 3rem 0;
-      }
-      
-      .modal-content {
-        width: 95%;
-        margin: 10% auto;
       }
     }
     
@@ -801,7 +546,7 @@
     <div class="container">
       <div class="hero-content animate__animated animate__fadeInUp">
         <h1>Transform Your Business Digitally</h1>
-        <p>Professional advisory services for insurance, restaurant management, travel listings, and digital marketing.</p>
+        <p>Professional advisory services for insurance, restaurant management, hotel bookings, travel listings, and digital marketing.</p>
         <a href="#services" class="btn">Explore Services</a>
         <a href="#contact" class="btn btn-outline">Contact Us</a>
       </div>
@@ -815,7 +560,7 @@
         <h2>About Us</h2>
       </div>
       <div class="about-content">
-        <p>Marathi Digital is a premier advisory firm based in Pune, specializing in insurance solutions, restaurant & travel business optimization, and comprehensive digital marketing strategies. Led by Our Team, our team delivers tailored solutions that drive growth, streamline operations, and enhance digital presence for businesses and individuals alike.</p>
+        <p>Marathi Digital is a premier advisory firm based in Pune, specializing in insurance solutions, restaurant & travel business optimization, hotel booking services, and comprehensive digital marketing strategies. Led by Our Team, our team delivers tailored solutions that drive growth, streamline operations, and enhance digital presence for businesses and individuals alike.</p>
         <p>With years of industry experience and a client-first approach, we've helped numerous businesses transform their operations and individuals secure their financial future through strategic planning and implementation.</p>
       </div>
     </div>
@@ -864,6 +609,18 @@
           </div>
         </div>
         
+        <!-- Hotel Bookings -->
+        <div class="service-card" data-service="hotel">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=600&q=80" alt="Hotel Bookings">
+          </div>
+          <div class="service-content">
+            <h3>Hotel Booking Services</h3>
+            <p>Complete hotel booking solutions with platform integration, inventory management, and guest experience optimization.</p>
+            <a href="#" class="service-cta">Learn More →</a>
+          </div>
+        </div>
+        
         <!-- Travel Listings -->
         <div class="service-card" data-service="travel">
           <div class="service-img">
@@ -898,29 +655,29 @@
         <h2>Our Partners</h2>
       </div>
       <div class="partners-grid">
-        <div class="partner-logo">
-          <img src="/api/placeholder/150/80" alt="ICICI Prudential">
+        <div class="partner-card">
+          <div class="partner-category">Insurance Partners</div>
+          <div class="partner-names">ICICI Prudential • SBI Life • Kotak Life • Max Life • Tata AIA</div>
         </div>
-        <div class="partner-logo">
-          <img src="/api/placeholder/150/80" alt="SBI Life">
+        <div class="partner-card">
+          <div class="partner-category">Food Delivery</div>
+          <div class="partner-names">Zomato • Swiggy • UberEats • Dunzo • EatSure</div>
         </div>
-        <div class="partner-logo">
-          <img src="/api/placeholder/150/80" alt="Kotak Life">
+        <div class="partner-card">
+          <div class="partner-category">Hotel Booking</div>
+          <div class="partner-names">Booking.com • Expedia • Hotels.com • Agoda • Trivago</div>
         </div>
-        <div class="partner-logo">
-          <img src="/api/placeholder/150/80" alt="Zomato">
+        <div class="partner-card">
+          <div class="partner-category">Travel Platforms</div>
+          <div class="partner-names">MakeMyTrip • Goibibo • Cleartrip • Yatra • Ixigo</div>
         </div>
-        <div class="partner-logo">
-          <img src="/api/placeholder/150/80" alt="Swiggy">
+        <div class="partner-card">
+          <div class="partner-category">Accommodation</div>
+          <div class="partner-names">Airbnb • OYO • Zostel • FabHotels • RedDoorz</div>
         </div>
-        <div class="partner-logo">
-          <img src="/api/placeholder/150/80" alt="Airbnb">
-        </div>
-        <div class="partner-logo">
-          <img src="/api/placeholder/150/80" alt="MakeMyTrip">
-        </div>
-        <div class="partner-logo">
-          <img src="/api/placeholder/150/80" alt="Booking.com">
+        <div class="partner-card">
+          <div class="partner-category">Digital Marketing</div>
+          <div class="partner-names">Google Ads • Facebook • Instagram • LinkedIn • YouTube</div>
         </div>
       </div>
     </div>
@@ -974,3 +731,114 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Marathi Digital</h4>
+          <p>Professional advisory services for comprehensive business growth and digital transformation.</p>
+          <ul class="social-links">
+            <li><a href="#">📘</a></li>
+            <li><a href="#">📷</a></li>
+            <li><a href="#">🐦</a></li>
+            <li><a href="#">💼</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">Insurance Advisory</a></li>
+            <li><a href="#">Restaurant Onboarding</a></li>
+            <li><a href="#">Food Service Automation</a></li>
+            <li><a href="#">Hotel Booking Services</a></li>
+            <li><a href="#">Travel Listings</a></li>
+            <li><a href="#">Digital Marketing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#partners">Partners</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <ul class="footer-links">
+            <li>📍 Pune, Maharashtra, India</li>
+            <li>📞 +91 9823171785</li>
+            <li>✉️ Sales@marathidigital.net</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2024 Marathi Digital. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add active class to navigation links on scroll
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const sections = document.querySelectorAll('section');
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Add animation to service cards on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'all 0.6s ease-out';
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
